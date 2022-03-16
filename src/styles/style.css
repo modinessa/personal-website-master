@@ -375,14 +375,12 @@ main {
     }
 
     .app-section--submit-join-us {
-        display: inline-block;
         margin: 55px 0 0 0;
         height: 48px;
         width: 420px;
     }
 
     .app-section__button--subscribe {
-        display: inline-block;
         margin-top: 45px;
         margin-bottom: 100px;
     }
