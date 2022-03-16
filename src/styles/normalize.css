@@ -378,7 +378,8 @@ template {
     display: none;
 }
 
-input {
+input,
+input:focus {
     border: none;
     background-image: none;
     background-color: transparent;

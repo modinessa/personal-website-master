@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', event => {
       Sed do eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.
     </h3>
 
-    <form class="app-section--form-join-us" action="mailto:hello@website.com" method=”POST” name="EmailForm">
+    <form class="app-section--form-join-us" name="EmailForm">
 
       <div class="app-section--submit-join-us" >
         <label for="user-email">Email</label>
@@ -23,4 +23,14 @@ window.addEventListener('DOMContentLoaded', event => {
     </form>`;
 
     parentNode.insertBefore(joinSection, footerNode);
+
+    document
+        .querySelector('.app-section__button--subscribe')
+        .addEventListener('click', b => {
+            b.preventDefault();
+            let userEmail = document.querySelector(
+                '.app-section--email-join-us'
+            ).value;
+            console.log(userEmail);
+        });
 });

@@ -227,17 +227,24 @@ main {
         url(../assets/images/your-image-join.png) no-repeat center;
     box-sizing: border-box;
     color: white;
-    height: 435px;
     justify-content: space-between;
+    height: 435px;
     max-width: 100%;
-    padding-bottom: 100px;
-    padding-top: 45px;
+    padding-bottom: 90px;
+    padding-top: 35px;
 }
 
 .app-section--form-join-us {
+    width: 45%;
     display: flex;
-    justify-content: space-evenly;
-    width: 600px;
+    justify-content: space-between;
+    margin-left: 310px;
+    margin-right: 350px;
+}
+
+.app-section--image-joun-us h3 {
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0px;
 }
 
 .app-section--form-join-us > * {
@@ -259,7 +266,8 @@ main {
 }
 
 .app-section--email-join-us {
-    width: 340px;
+    color: white;
+    width: 300px;
 }
 
 .app-section__button--subscribe {
@@ -311,6 +319,10 @@ main {
 }
 
 @media only screen and (max-width: 768px) {
+    html {
+        min-width: 480px;
+    }
+
     .app-header {
         grid-template-columns: 1fr 1fr;
         padding: 0 32px;
@@ -344,6 +356,37 @@ main {
     .app-section__button--read-more {
         margin: 24px auto 48px;
     }
+
+    .app-section--image-joun-us {
+        background: linear-gradient(
+                to top,
+                rgba(5, 17, 18, 0.5),
+                rgba(5, 17, 18, 0.5)
+            ),
+            url(../assets/images/your-image-join_mob.png) no-repeat center/cover;
+        height: 523px;
+        width: 100%;
+    }
+
+    .app-section--form-join-us {
+        margin: 0;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .app-section--submit-join-us {
+        display: inline-block;
+        margin: 55px 0 0 0;
+        height: 48px;
+        width: 420px;
+    }
+
+    .app-section__button--subscribe {
+        display: inline-block;
+        margin-top: 45px;
+        margin-bottom: 100px;
+    }
+
     .app-footer {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(9, 1fr);
