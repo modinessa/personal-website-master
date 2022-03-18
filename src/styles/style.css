@@ -169,11 +169,7 @@ main {
 }
 
 .app-section--image-peak {
-    background: linear-gradient(
-            to top,
-            rgba(65, 65, 65, 0.5),
-            rgba(65, 65, 65, 0.5)
-        ),
+    background: linear-gradient(to top, rgba(65, 65, 65, 0.5), rgba(65, 65, 65, 0.5)),
         url(../assets/images/your-image-here.jpg) no-repeat center/cover;
     height: 800px;
     max-width: 100%;
@@ -198,11 +194,7 @@ main {
 }
 
 .app-section--image-culture {
-    background: linear-gradient(
-            to top,
-            rgba(65, 65, 65, 0.7),
-            rgba(65, 65, 65, 0.7)
-        ),
+    background: linear-gradient(to top, rgba(65, 65, 65, 0.7), rgba(65, 65, 65, 0.7)),
         url(../assets/images/your-image.jpg) no-repeat center/cover;
     height: 698px;
     max-width: 100%;
@@ -219,11 +211,7 @@ main {
 }
 
 .app-section--image-joun-us {
-    background: linear-gradient(
-            to top,
-            rgba(5, 17, 18, 0.5),
-            rgba(5, 17, 18, 0.5)
-        ),
+    background: linear-gradient(to top, rgba(5, 17, 18, 0.5), rgba(5, 17, 18, 0.5)),
         url(../assets/images/your-image-join.png) no-repeat center;
     box-sizing: border-box;
     color: white;
@@ -235,11 +223,17 @@ main {
 }
 
 .app-section--form-join-us {
-    width: 45%;
+    width: 600px;
     display: flex;
     justify-content: space-between;
-    margin-left: 310px;
-    margin-right: 350px;
+    margin-left: 27%;
+    margin-right: 32%;
+}
+
+.advanced {
+    width: 645px;
+    margin-left: 27%;
+    margin-right: 27%;
 }
 
 .app-section--image-joun-us h3 {
@@ -277,6 +271,10 @@ main {
     letter-spacing: 1.2px;
     text-transform: uppercase;
     width: 110px;
+}
+
+.advanced button {
+    width: 190px;
 }
 
 .app-footer {
@@ -358,11 +356,7 @@ main {
     }
 
     .app-section--image-joun-us {
-        background: linear-gradient(
-                to top,
-                rgba(5, 17, 18, 0.5),
-                rgba(5, 17, 18, 0.5)
-            ),
+        background: linear-gradient(to top, rgba(5, 17, 18, 0.5), rgba(5, 17, 18, 0.5)),
             url(../assets/images/your-image-join_mob.png) no-repeat center/cover;
         height: 523px;
         width: 100%;
