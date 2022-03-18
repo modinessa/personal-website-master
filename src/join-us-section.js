@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', event => {
+const createSection = (title, subButton, formClass) => {
     const joinSection = document.createElement('section');
     const parentNode = document.querySelector('main');
     const footerNode = document.querySelector('footer');
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', event => {
       Sed do eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.
     </h3>
 
-    <form class="app-section--form-join-us" name="EmailForm">
+    <form class="app-section--form-join-us ${formClass}" name="EmailForm">
 
       <div class="app-section--submit-join-us" >
         <label for="user-email">Email</label>
@@ -30,4 +30,6 @@ window.addEventListener('DOMContentLoaded', event => {
         let userEmail = document.querySelector('.app-section--email-join-us').value;
         console.log(userEmail);
     });
-});
+};
+
+export default createSection;
