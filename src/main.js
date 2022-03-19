@@ -1,4 +1,4 @@
-import createSection from './join-us-section'; 
+import createSection from './join-us-section.js';
 
 // Factory ----
 
