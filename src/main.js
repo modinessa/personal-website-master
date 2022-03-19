@@ -1,7 +1,9 @@
-import createSection from './join-us-section';
+import createSection from './join-us-section'; 
+
+// Factory ----
 
 class SectionCreator {
-    create(type) {
+    create(type) {          //factoryMethod()
         switch (type) {
             case 'standart':
                 return new JoinSection('Join Our Program', 'Subscribe');
@@ -13,6 +15,8 @@ class SectionCreator {
         }
     }
 }
+
+// Abstract Product ----
 
 class JoinSection {
     joinSection = null;
