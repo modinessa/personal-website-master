@@ -1,36 +1,48 @@
-window.addEventListener('DOMContentLoaded', event => {
-    const joinSection = document.createElement('section');
-    const parentNode = document.querySelector('main');
-    const footerNode = document.querySelector('footer');
+import createSection from './join-us-section';
 
-    joinSection.className = 'app-section app-section--image-joun-us';
-    joinSection.innerHTML = `<h2 class="app-title">
-      Join Our Program
-    </h2>
-    
-    <h3 class="app-subtitle">
-      Sed do eiusmod tempor incididunt <br /> ut labore et dolore magna aliqua.
-    </h3>
+class SectionCreator {
+    create(type) {
+        switch (type) {
+            case 'standart':
+                return new JoinSection('Join Our Program', 'Subscribe');
+            case 'advanced':
+                return new JoinSection(
+                    'Join Our Advanced Program',
+                    'Subscribe to Advanced Program'
+                );
+        }
+    }
+}
 
-    <form class="app-section--form-join-us" name="EmailForm">
+class JoinSection {
+    joinSection = null;
 
-      <div class="app-section--submit-join-us" >
-        <label for="user-email">Email</label>
-      <input class="app-section--email-join-us" type="email" id="user-email" name="email">
-      </div>
-      
-      <button type="submit" class="app-section__button app-section__button--subscribe">Subscribe</button>
-    </form>`;
+    constructor(title, subButton) {
+        this.title = title;
+        this.subButton = subButton;
+        this.render();
+    }
 
-    parentNode.insertBefore(joinSection, footerNode);
+    render() {
+        let adv;
+        if (this.title === 'Join Our Advanced Program') {
+            adv = 'advanced';
+        }
+        createSection(this.title, this.subButton, adv);
+    }
 
-    document
-        .querySelector('.app-section__button--subscribe')
-        .addEventListener('click', b => {
-            b.preventDefault();
-            let userEmail = document.querySelector(
-                '.app-section--email-join-us'
-            ).value;
-            console.log(userEmail);
-        });
-});
+    remove() {
+        if (!this.joinSection) {
+            return;
+        }
+        this.joinSection.remove();
+        this.joinSection = null;
+    }
+}
+
+const sectionCreator = new SectionCreator();
+const standartJoinSection = sectionCreator.create('standart');
+
+// const advancedJoinSection = sectionCreator.create('advanced');
+// standartJoinSection.remove();
+// advancedJoinSection.remove();
