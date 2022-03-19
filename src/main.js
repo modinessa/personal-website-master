@@ -42,3 +42,7 @@ class JoinSection {
 
 const sectionCreator = new SectionCreator();
 const standartJoinSection = sectionCreator.create('standart');
+
+// const advancedJoinSection = sectionCreator.create('advanced');
+// standartJoinSection.remove();
+// advancedJoinSection.remove();
