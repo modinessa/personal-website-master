@@ -3,7 +3,8 @@ import createSection from './join-us-section.js';
 // Factory ----
 
 class SectionCreator {
-    create(type) {          //factoryMethod()
+    create(type) {
+        //factoryMethod()
         switch (type) {
             case 'standart':
                 return new JoinSection('Join Our Program', 'Subscribe');
@@ -24,15 +25,31 @@ class JoinSection {
     constructor(title, subButton) {
         this.title = title;
         this.subButton = subButton;
-        this.render();
+        this.joinSection = this.render();
     }
 
     render() {
+        const joinSection = document.createElement('section');
+        const parentNode = document.querySelector('main');
+        const footerNode = document.querySelector('footer');
+
+        joinSection.className = 'app-section app-section--image-joun-us';
+
         let adv;
         if (this.title === 'Join Our Advanced Program') {
             adv = 'advanced';
         }
-        createSection(this.title, this.subButton, adv);
+
+        joinSection.innerHTML = createSection(this.title, this.subButton, adv);
+        parentNode.insertBefore(joinSection, footerNode);
+
+        document.querySelector('.app-section__button--subscribe').addEventListener('click', b => {
+            b.preventDefault();
+            let userEmail = document.querySelector('.app-section--email-join-us').value;
+            console.log(userEmail);
+        });
+
+        return joinSection;
     }
 
     remove() {
@@ -47,6 +64,7 @@ class JoinSection {
 const sectionCreator = new SectionCreator();
 const standartJoinSection = sectionCreator.create('standart');
 
-// const advancedJoinSection = sectionCreator.create('advanced');
 // standartJoinSection.remove();
+
+// const advancedJoinSection = sectionCreator.create('advanced');
 // advancedJoinSection.remove();

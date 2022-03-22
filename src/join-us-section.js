@@ -1,11 +1,5 @@
 const createSection = (title, subButton, formClass) => {
-    const joinSection = document.createElement('section');
-    const parentNode = document.querySelector('main');
-    const footerNode = document.querySelector('footer');
-
-    joinSection.className = 'app-section app-section--image-joun-us';
-
-    joinSection.innerHTML = `<h2 class="app-title">
+    let sectionContent = `<h2 class="app-title">
       ${title}
     </h2>
     
@@ -23,13 +17,7 @@ const createSection = (title, subButton, formClass) => {
       <button type="submit" class="app-section__button app-section__button--subscribe">${subButton}</button>
     </form>`;
 
-    parentNode.insertBefore(joinSection, footerNode);
-
-    document.querySelector('.app-section__button--subscribe').addEventListener('click', b => {
-        b.preventDefault();
-        let userEmail = document.querySelector('.app-section--email-join-us').value;
-        console.log(userEmail);
-    });
+    return sectionContent;
 };
 
 export default createSection;
