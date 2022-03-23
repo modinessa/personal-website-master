@@ -1,4 +1,8 @@
 import createSection from './join-us-section.js';
+import validate from './email-validator.js';
+
+import './styles/normalize.css';
+import './styles/style.css';
 
 // Factory ----
 
@@ -45,8 +49,15 @@ class JoinSection {
 
         document.querySelector('.app-section__button--subscribe').addEventListener('click', b => {
             b.preventDefault();
-            let userEmail = document.querySelector('.app-section--email-join-us').value;
-            console.log(userEmail);
+            const userEmail = joinSection.querySelector('.app-section--email-join-us').value;
+            const valid = validate(userEmail);
+
+            if (valid) {
+                alert(`(${valid}) Your email is valid.`);
+                console.log(userEmail);
+            } else {
+                alert(`(${valid}) Your email is invalid.`);
+            }
         });
 
         return joinSection;
