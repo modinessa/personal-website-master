@@ -1,4 +1,8 @@
 import createSection from './join-us-section.js';
+import validate from './email-validator.js';
+
+import './styles/normalize.css';
+import './styles/style.css';
 
 // Factory ----
 
@@ -33,6 +37,8 @@ class JoinSection {
         const parentNode = document.querySelector('main');
         const footerNode = document.querySelector('footer');
 
+        console.log(3);
+
         joinSection.className = 'app-section app-section--image-joun-us';
 
         let adv;
@@ -45,8 +51,15 @@ class JoinSection {
 
         document.querySelector('.app-section__button--subscribe').addEventListener('click', b => {
             b.preventDefault();
-            let userEmail = document.querySelector('.app-section--email-join-us').value;
-            console.log(userEmail);
+            const userEmail = joinSection.querySelector('.app-section--email-join-us').value;
+            const valid = validate(userEmail);
+
+            if (valid) {
+                alert(`(${valid}) Your email is valid.`);
+                console.log(userEmail);
+            } else {
+                alert(`(${valid}) Your email is invalid.`);
+            }
         });
 
         return joinSection;
@@ -65,6 +78,5 @@ const sectionCreator = new SectionCreator();
 const standartJoinSection = sectionCreator.create('standart');
 
 // standartJoinSection.remove();
-
 // const advancedJoinSection = sectionCreator.create('advanced');
 // advancedJoinSection.remove();

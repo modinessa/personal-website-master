@@ -8,10 +8,8 @@ const createSection = (title, subButton, formClass) => {
     </h3>
 
     <form class="app-section--form-join-us ${formClass}" name="EmailForm">
-
-      <div class="app-section--submit-join-us" >
-        <label for="user-email">Email</label>
-      <input class="app-section--email-join-us" type="email" id="user-email" name="email">
+ 
+      <input class="app-section--email-join-us" type="email" id="user-email" name="email" placeholder="Email">
       </div>
       
       <button type="submit" class="app-section__button app-section__button--subscribe">${subButton}</button>
