@@ -1,6 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -10,7 +10,12 @@ module.exports = {
     },
 
     optimization: {
-        minimizer: [new UglifyJsPlugin()],
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                test: /\.js(\?.*)?$/i,
+            }),
+        ],
     },
 
     plugins: [
