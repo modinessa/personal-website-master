@@ -1,5 +1,5 @@
 const createSection = (title, subButton, formClass) => {
-    let sectionContent = `<h2 class="app-title">
+  const sectionContent = `<h2 class="app-title">
       ${title}
     </h2>
     
@@ -15,7 +15,7 @@ const createSection = (title, subButton, formClass) => {
       <button type="submit" class="app-section__button app-section__button--subscribe">${subButton}</button>
     </form>`;
 
-    return sectionContent;
+  return sectionContent;
 };
 
 export default createSection;
