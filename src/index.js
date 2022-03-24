@@ -37,6 +37,8 @@ class JoinSection {
         const parentNode = document.querySelector('main');
         const footerNode = document.querySelector('footer');
 
+        console.log(3);
+
         joinSection.className = 'app-section app-section--image-joun-us';
 
         let adv;
@@ -76,6 +78,5 @@ const sectionCreator = new SectionCreator();
 const standartJoinSection = sectionCreator.create('standart');
 
 // standartJoinSection.remove();
-
 // const advancedJoinSection = sectionCreator.create('advanced');
 // advancedJoinSection.remove();
