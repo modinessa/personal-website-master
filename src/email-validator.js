@@ -1,13 +1,13 @@
 const validate = email => {
-    const VALID_EMAIL_ENDINGS = ['gmail.com', 'outlook.com', 'yandex.ru'];
-    const rule = [];
+  const VALID_EMAIL_ENDINGS = ['gmail.com', 'outlook.com', 'yandex.ru'];
 
-    for (const element of VALID_EMAIL_ENDINGS) {
-        rule.push(`${element}$`);
-    }
-
-    const regExp = new RegExp(rule.toString().replace(/,/g, '|'), 'gi');
-    return regExp.test(email);
+  const regExp = new RegExp(
+    VALID_EMAIL_ENDINGS.map(element => `${element}$`)
+      .toString()
+      .replace(/,/g, '|'),
+    'gi',
+  );
+  return regExp.test(email);
 };
 
 export default validate;
