@@ -32,8 +32,8 @@ class JoinSection {
     joinSection.innerHTML = createSection(this.title, this.subButton, adv);
     parentNode.insertBefore(joinSection, footerNode);
 
-    document.querySelector('.app-section__button--subscribe').addEventListener('click', b => {
-      b.preventDefault();
+    document.querySelector('.app-section__button--subscribe').addEventListener('click', button => {
+      button.preventDefault();
       const userEmail = joinSection.querySelector('.app-section--email-join-us').value;
       const valid = validate(userEmail);
 
@@ -60,7 +60,6 @@ class JoinSection {
 // Factory ----
 
 class SectionCreator {
-  // eslint-disable-next-line consistent-return
   create(type) {
     // factoryMethod()
     switch (type) {
