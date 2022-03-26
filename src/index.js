@@ -21,28 +21,54 @@ class JoinSection {
     const joinSection = document.createElement('section');
     const parentNode = document.querySelector('main');
     const footerNode = document.querySelector('footer');
-
+	
     joinSection.className = 'app-section app-section--image-joun-us';
+		
+		//Ckeck if subscribe btn
+		let subBtnMode = true;
 
-    let adv;
+
+		//Check what type of setion to create
+		let adv;
     if (this.title === 'Join Our Advanced Program') {
       adv = 'advanced';
-    }
+    } else {
+			adv = 'standart';
+		}
 
     joinSection.innerHTML = createSection(this.title, this.subButton, adv);
     parentNode.insertBefore(joinSection, footerNode);
 
-    document.querySelector('.app-section__button--subscribe').addEventListener('click', button => {
-      button.preventDefault();
-      const userEmail = joinSection.querySelector('.app-section--email-join-us').value;
-      const valid = validate(userEmail);
+		const userEmail = joinSection.querySelector('#user-email');
 
-      if (valid) {
-        alert(`(${valid}) Your email is valid.`);
-        console.log(userEmail);
-      } else {
-        alert(`(${valid}) Your email is invalid.`);
-      }
+    joinSection.querySelector('#subBtn').addEventListener('click', button => {
+      button.preventDefault();
+
+			if (subBtnMode) {
+				//Check if e-maile is valid
+			const valid = validate(userEmail.value);
+
+			 if (valid) {
+        localStorage.setItem(`userEmail`, userEmail.value);
+				userEmail.classList.add('hidden');
+				button.target.innerHTML = 'Unsubscribe'
+				document.querySelector('.app-section--form-join-us').classList.add('unsubscribe');
+				subBtnMode = false;
+			} else {
+				alert('Enter correct email adress, please!')
+			}
+			
+			} else {
+		  		userEmail.classList.remove('hidden');
+					document.querySelector('.app-section--form-join-us').classList.remove('unsubscribe');
+					button.target.innerHTML = 'Subscribe';
+					userEmail.value = '';
+					localStorage.removeItem(`userEmail`);
+					subBtnMode = true;
+
+		}
+
+		
     });
 
     return joinSection;
