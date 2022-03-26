@@ -7,7 +7,6 @@ import './styles/normalize.css';
 import './styles/style.css';
 
 // Abstract Product ----
-
 class JoinSection {
   joinSection = null;
 
@@ -24,9 +23,15 @@ class JoinSection {
 	
     joinSection.className = 'app-section app-section--image-joun-us';
 		
-		//Ckeck if subscribe btn
-		let subBtnMode = true;
-
+		//Ckeck subscribe/unsubscribe btn
+		let subBtnMode;
+		if (localStorage.getItem('subBtnMode'))
+			{
+				subBtnMode = localStorage.getItem('subBtnMode');
+			} else {
+				subBtnMode = true;
+			}
+		
 
 		//Check what type of setion to create
 		let adv;
@@ -36,24 +41,34 @@ class JoinSection {
 			adv = 'standart';
 		}
 
-    joinSection.innerHTML = createSection(this.title, this.subButton, adv);
-    parentNode.insertBefore(joinSection, footerNode);
+		if (localStorage.getItem('page_html')) {
+			//Get Join Section content from LocalStorage
+			joinSection.innerHTML = localStorage.getItem('page_html')
+		} else {
+			//Creating Join Section
+    	joinSection.innerHTML = createSection(this.title, this.subButton, adv);
+		}
+
+		parentNode.insertBefore(joinSection, footerNode);
 
 		const userEmail = joinSection.querySelector('#user-email');
 
     joinSection.querySelector('#subBtn').addEventListener('click', button => {
       button.preventDefault();
 
+
 			if (subBtnMode) {
 				//Check if e-maile is valid
 			const valid = validate(userEmail.value);
 
 			 if (valid) {
-        localStorage.setItem(`userEmail`, userEmail.value);
-				userEmail.classList.add('hidden');
-				button.target.innerHTML = 'Unsubscribe'
-				document.querySelector('.app-section--form-join-us').classList.add('unsubscribe');
-				subBtnMode = false;
+					userEmail.classList.add('hidden');
+					button.target.innerHTML = 'Unsubscribe'
+					document.querySelector('.app-section--form-join-us').classList.add('unsubscribe');
+					subBtnMode = false;
+					localStorage.setItem(`userEmail`, userEmail.value);
+					localStorage.setItem('page_html', joinSection.innerHTML);
+					localStorage.setItem('subBtnMode', subBtnMode);
 			} else {
 				alert('Enter correct email adress, please!')
 			}
@@ -63,12 +78,11 @@ class JoinSection {
 					document.querySelector('.app-section--form-join-us').classList.remove('unsubscribe');
 					button.target.innerHTML = 'Subscribe';
 					userEmail.value = '';
-					localStorage.removeItem(`userEmail`);
 					subBtnMode = true;
-
+					localStorage.removeItem(`userEmail`);
+					localStorage.setItem('page_html', joinSection.innerHTML);
+					localStorage.setItem('subBtnMode', subBtnMode);
 		}
-
-		
     });
 
     return joinSection;
@@ -98,6 +112,6 @@ class SectionCreator {
     }
   }
 }
-
+//localStorage.clear();
 const sectionCreator = new SectionCreator();
 sectionCreator.create('standart');
