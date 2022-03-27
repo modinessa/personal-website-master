@@ -6,6 +6,30 @@ import validate from './email-validator.js';
 import './styles/normalize.css';
 import './styles/style.css';
 
+const SUBSCRIBE_TITLE_ADVANCED = 'Join Our Advanced Program';
+const SUBSCRIBE_TITLE_STANDART = 'Join Our Program';
+const SUBSCRIBE_BTN = 'subscribe';
+const UNSUBSCRIBE_BTN = 'unsubscribe';
+const SUBSCRIBE_BTN_ADVANCED = 'subscribe to Advanced Program';
+const STANDART_TYPE = 'standart';
+const ADVANCED_TYPE = 'advanced';
+const HIDDEN = 'hidden';
+
+
+// Factory ----
+
+class SectionCreator {
+  create(type) {
+    // factoryMethod()
+    switch (type) {
+      case STANDART_TYPE:
+        return new JoinSection(SUBSCRIBE_TITLE_STANDART, SUBSCRIBE_BTN);
+      case ADVANCED_TYPE:
+        return new JoinSection(SUBSCRIBE_TITLE_ADVANCED, SUBSCRIBE_BTN_ADVANCED);
+    }
+  }
+}
+
 // Abstract Product ----
 class JoinSection {
   joinSection = null;
@@ -23,23 +47,10 @@ class JoinSection {
 	
     joinSection.className = 'app-section app-section--image-joun-us';
 		
-		//Ckeck subscribe/unsubscribe btn
-		let subBtnMode;
-		if (localStorage.getItem('subBtnMode'))
-			{
-				subBtnMode = localStorage.getItem('subBtnMode');
-			} else {
-				subBtnMode = true;
-			}
 		
 
 		//Check what type of setion to create
-		let adv;
-    if (this.title === 'Join Our Advanced Program') {
-      adv = 'advanced';
-    } else {
-			adv = 'standart';
-		}
+		const adv = this.title === SUBSCRIBE_TITLE_ADVANCED ? ADVANCED_TYPE : STANDART_TYPE;
 
 		if (localStorage.getItem('page_html')) {
 			//Get Join Section content from LocalStorage
@@ -53,36 +64,37 @@ class JoinSection {
 
 		const userEmail = joinSection.querySelector('#user-email');
 
+		userEmail.addEventListener('change', (inp) => {
+			inp.preventDefault();
+			localStorage.setItem('userEmail', userEmail.value);
+		});
+
     joinSection.querySelector('#subBtn').addEventListener('click', button => {
       button.preventDefault();
 
+			let isSubscribed = localStorage.getItem('isSubscribed') === 'true';
 
-			if (subBtnMode) {
-				//Check if e-maile is valid
-			const valid = validate(userEmail.value);
-
-			 if (valid) {
-					userEmail.classList.add('hidden');
-					button.target.innerHTML = 'Unsubscribe'
-					document.querySelector('.app-section--form-join-us').classList.add('unsubscribe');
-					subBtnMode = false;
-					localStorage.setItem(`userEmail`, userEmail.value);
-					localStorage.setItem('page_html', joinSection.innerHTML);
-					localStorage.setItem('subBtnMode', subBtnMode);
+			if (isSubscribed) {
+				userEmail.classList.remove(HIDDEN);
+				document.querySelector('.app-section--form-join-us').classList.remove(UNSUBSCRIBE_BTN);
+				button.target.innerHTML = SUBSCRIBE_BTN;
+				userEmail.value = '';
+				localStorage.removeItem(`userEmail`);
+				localStorage.setItem('page_html', joinSection.innerHTML);
+				isSubscribed = false;
+				localStorage.setItem('isSubscribed', isSubscribed);
 			} else {
-				alert('Enter correct email adress, please!')
+			  if (validate(userEmail.value)) {
+					userEmail.classList.add(HIDDEN);
+					button.target.innerHTML = UNSUBSCRIBE_BTN;
+					document.querySelector('.app-section--form-join-us').classList.add(UNSUBSCRIBE_BTN);
+					localStorage.setItem('page_html', joinSection.innerHTML);
+					isSubscribed = true;
+					localStorage.setItem('isSubscribed', isSubscribed);
+				} else {
+					alert('Enter correct email adress, please!');
+				}
 			}
-			
-			} else {
-		  		userEmail.classList.remove('hidden');
-					document.querySelector('.app-section--form-join-us').classList.remove('unsubscribe');
-					button.target.innerHTML = 'Subscribe';
-					userEmail.value = '';
-					subBtnMode = true;
-					localStorage.removeItem(`userEmail`);
-					localStorage.setItem('page_html', joinSection.innerHTML);
-					localStorage.setItem('subBtnMode', subBtnMode);
-		}
     });
 
     return joinSection;
@@ -97,21 +109,6 @@ class JoinSection {
   }
 }
 
-// Factory ----
-
-class SectionCreator {
-  create(type) {
-    // factoryMethod()
-    switch (type) {
-      case 'standart':
-        return new JoinSection('Join Our Program', 'Subscribe');
-      case 'advanced':
-        return new JoinSection('Join Our Advanced Program', 'Subscribe to Advanced Program');
-      default:
-        console.log('There is no section created');
-    }
-  }
-}
-//localStorage.clear();
 const sectionCreator = new SectionCreator();
-sectionCreator.create('standart');
+sectionCreator.create(STANDART_TYPE);
+//localStorage.clear();
