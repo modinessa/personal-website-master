@@ -12,7 +12,8 @@ const createSection = (title, subButton, formClass) => {
       <input class="app-section--email-join-us" type="email" id="user-email" name="email" placeholder="Email">
       </div>
       
-      <button type="submit" class="app-section__button app-section__button--subscribe">${subButton}</button>
+      <button type="submit" class="app-section__button app-section__join-us--button" id="subBtn">${subButton}</button>
+
     </form>`;
 
   return sectionContent;
