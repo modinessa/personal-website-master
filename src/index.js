@@ -2,7 +2,7 @@
 import createSection from './join-us-section.js';
 // eslint-disable-next-line
 import validate from './email-validator.js';
-
+// eslint-disable-next-line
 import * as constants from './constants.js';
 
 import './styles/normalize.css';
@@ -27,6 +27,7 @@ class SectionCreator {
 
 // Abstract Product ----
 class JoinSection {
+  // eslint-disable-next-line
   joinSection = null;
 
   constructor(title, subButton) {
