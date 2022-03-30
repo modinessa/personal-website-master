@@ -1,8 +1,9 @@
-const validate = email => {
-  const VALID_EMAIL_ENDINGS = ['gmail.com', 'outlook.com', 'yandex.ru'];
+import * as constants from './constants.js';
 
+const validate = email => {
+  
   const regExp = new RegExp(
-    VALID_EMAIL_ENDINGS.map(element => `${element}$`)
+    constants.VALID_EMAIL_ENDINGS.map(element => `${element}$`)
       .toString()
       .replace(/,/g, '|'),
     'gi',

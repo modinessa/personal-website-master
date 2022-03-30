@@ -6,3 +6,4 @@ export const SUBSCRIBE_BTN_ADVANCED = 'subscribe to Advanced Program';
 export const STANDART_TYPE = 'standart';
 export const ADVANCED_TYPE = 'advanced';
 export const HIDDEN = 'hidden';
+export const VALID_EMAIL_ENDINGS = ['gmail.com', 'outlook.com', 'yandex.ru'];
