@@ -2,7 +2,6 @@ module.exports = {
   env: {
     browser: true,
   },
-  //parser: "@babel/eslint-parser",
   extends: ['airbnb-base'],
   parserOptions: {
     ecmaVersion: 2018,
@@ -14,11 +13,11 @@ module.exports = {
     'consistent-return': 'warn',
     'func-name': 'off',
     'quotes': ['warn', 'single'],
-    'id-length': ['error', { min: 3 }],
+    'id-length': ['error', { min: 2 }],
     'linebreak-style': ['error', 'windows'],
     'max-classes-per-file': ['error', 2],
-    'no-use-before-define': ['warn', { functions: true, classes: true, variables: false }],
-		'no-param-reassign': 'warn',
+    'no-use-before-define': ['off', { functions: true, classes: true, variables: false }],
+		'no-param-reassign': 'off',
     'space-before-blocks': 'warn',
     'no-restricted-modules': ['warn', 'foo-module', 'bar-module'],
   },
