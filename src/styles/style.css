@@ -423,8 +423,7 @@ h3.dark {
 		height: 648px;
 	}
 
-	#member_01,
-	#member_02 {
+	div.app-section__members>:not(:first-child) {
 		display: none;
 	}
 
