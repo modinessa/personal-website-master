@@ -1,20 +1,13 @@
 const unsubscribeHandler = () => {
-  const userEmail = document.querySelector('#user-email');
-  const postObj = {
-    email: `${userEmail.value}`,
-  };
-  const post = JSON.stringify(postObj);
-  const url = 'http://localhost:3000/unsubscribe';
-
   const xhr = new XMLHttpRequest();
 
-  xhr.open('POST', url, true);
+  xhr.open('POST', '/api/unsubscribe', true);
   xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
-  xhr.send(post);
+  xhr.send();
 
   xhr.onload = function () {
     if (xhr.status === 200) {
-      console.log('You are unsubscribed!');
+      alert('You are unsubscribed!  We will miss you! :(');
     } else if (xhr.status === 422) {
       alert(xhr.response);
     }

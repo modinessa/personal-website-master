@@ -1,8 +1,8 @@
-// eslint-disable-next-line
-import createSection from './join-us-section.js';
-// eslint-disable-next-line
+import createJoinSection from './join-us-section.js';
 import validate from './email-validator.js';
-// eslint-disable-next-line
+import unsubscribeHandler from './unsubscribe.js';
+import subscribeHandler from './subscribe.js';
+import createCommunitySection from './big-community-section.js';
 import * as constants from './constants.js';
 
 import './styles/normalize.css';
@@ -11,6 +11,7 @@ import './styles/style.css';
 // Factory ----
 
 class SectionCreator {
+  // eslint-disable-next-line
   create(type) {
     // eslint-disable-next-line
     switch (type) {
@@ -28,8 +29,6 @@ class SectionCreator {
 // Abstract Product ----
 class JoinSection {
   // eslint-disable-next-line
-  //joinSection = null;
-
   constructor(title, subButton) {
     this.title = title;
     this.subButton = subButton;
@@ -51,6 +50,7 @@ class JoinSection {
       localStorage.setItem('page_html', joinSection.innerHTML);
       isSubscribed = false;
       localStorage.setItem('isSubscribed', isSubscribed);
+      unsubscribeHandler();
     } else if (validate(userEmail.value)) {
       userEmail.classList.add(constants.HIDDEN);
       button.target.innerHTML = constants.UNSUBSCRIBE_BTN;
@@ -58,6 +58,7 @@ class JoinSection {
       localStorage.setItem('page_html', joinSection.innerHTML);
       isSubscribed = true;
       localStorage.setItem('isSubscribed', isSubscribed);
+      subscribeHandler();
     } else {
       alert('Enter correct email adress, please!');
     }
@@ -75,7 +76,7 @@ class JoinSection {
       ? constants.ADVANCED_TYPE
       : constants.STANDART_TYPE;
 
-    joinSection.innerHTML = localStorage.getItem('page_html') || createSection(this.title, this.subButton, adv);
+    joinSection.innerHTML = localStorage.getItem('page_html') || createJoinSection(this.title, this.subButton, adv);
 
     parentNode.insertBefore(joinSection, footerNode);
 
@@ -103,4 +104,4 @@ class JoinSection {
 
 const sectionCreator = new SectionCreator();
 sectionCreator.create(constants.STANDART_TYPE);
-// localStorage.clear();
+createCommunitySection();
