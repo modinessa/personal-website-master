@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import * as constants from './constants.js';
 
-const validate = email => {
+export function validate(email) {
   const regExp = new RegExp(
     constants.VALID_EMAIL_ENDINGS.map(element => `${element}$`)
       .toString()
@@ -9,6 +9,4 @@ const validate = email => {
     'gi',
   );
   return regExp.test(email);
-};
-
-export default validate;
+}

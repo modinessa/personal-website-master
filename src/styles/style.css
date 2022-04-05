@@ -247,6 +247,7 @@ h3.dark {
 
 .app-section__member-review {
 	min-height: 100px;
+	max-width: 230px;
 }
 
 .app-section__member-name {
@@ -355,6 +356,10 @@ h3.dark {
 	display: none;
 }
 
+.disabled {
+	opacity: 0.5;
+}
+
 .advanced button {
 	width: 190px;
 }
@@ -453,12 +458,17 @@ h3.dark {
 			url(../assets/images/your-image-join_mob.png) no-repeat center/cover;
 		height: 523px;
 		width: 100%;
+		justify-content: flex-start;
 	}
 
 	.app-section--form-join-us {
-		margin: 0;
+		margin: 25px 0 0 0;
 		flex-direction: column;
 		justify-content: space-between;
+	}
+
+	.unsubscribe>button {
+		margin-top: 91px;
 	}
 
 	.app-section--submit-join-us {
@@ -469,7 +479,7 @@ h3.dark {
 
 	.app-section__join-us--button {
 		margin-top: 45px;
-		margin-bottom: 100px;
+		margin-bottom: 0;
 	}
 
 	.app-footer {
