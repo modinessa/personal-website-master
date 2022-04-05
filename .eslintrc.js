@@ -16,6 +16,7 @@ module.exports = {
     'id-length': ['error', { min: 2 }],
 		'indent': 'warn',
 		'import/extensions': 'off',
+		'import/prefer-default-export': 'off',
     'linebreak-style': ['error', 'windows'],
     'max-classes-per-file': ['error', 2],
     'no-use-before-define': ['off', { functions: true, classes: true, variables: false }],
