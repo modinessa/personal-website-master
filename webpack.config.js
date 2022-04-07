@@ -6,8 +6,12 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+		proxy: {
+			'/api': {
+				target: 'http://localhost:3000',
+				pathRewrite: { '^/api': '' },
+			},
+		},
     port: 9000,
-    hot: true,
-  },
+	}
 });

@@ -1,4 +1,4 @@
-const createSection = (title, subButton, formClass) => {
+export function createJoinSection(title, subButton, formClass) {
   const sectionContent = `<h2 class="app-title">
       ${title}
     </h2>
@@ -17,6 +17,4 @@ const createSection = (title, subButton, formClass) => {
     </form>`;
 
   return sectionContent;
-};
-
-export default createSection;
+}
