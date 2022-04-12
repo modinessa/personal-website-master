@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Learning webpack",
 	"main": "index.js",
+	"type": "module",
 	"scripts": {
 		"test": "npx mocha \"src/**/*.test.js\" --recursive --require @babel/register",
 		"build": "webpack --config webpack.prod.js",
