@@ -44,9 +44,9 @@ function subscribeHandler(url, userEmail, isSubscribed, submitForm, button, join
     },
   })
     .then((response) => handlerErrors(response, button))
-    .then(() => { 
+    .then(() => {
       succeed(userEmail, isSubscribed, submitForm, button, joinSection);
-      unable(button)
+      unable(button);
     })
     .catch((error) => alert((error)));
 }
