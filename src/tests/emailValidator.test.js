@@ -1,5 +1,5 @@
 import sinon from 'sinon';
-import { assert, expect } from 'chai'; 
+import { expect } from 'chai'; 
 import { validate, validateAsync, validateWithThrow, validateWithLog } from '../../email-validator.js';
  
 describe('validate() testing', () => { 
