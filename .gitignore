@@ -1,3 +1,4 @@
 node_modules
 backup.js
 dist
+.nyc_output
