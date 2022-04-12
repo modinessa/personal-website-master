@@ -1,6 +1,6 @@
 import sinon from 'sinon';
 import { assert, expect } from 'chai'; 
-import { validate, validateAsync, validateWithThrow, validateWithLog } from '../email-validator.js';
+import { validate, validateAsync, validateWithThrow, validateWithLog } from '../../email-validator.js';
  
 describe('validate() testing', () => { 
   it('should return false for empty string', () => {
