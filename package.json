@@ -9,7 +9,7 @@
 		"build": "webpack --config webpack.prod.js",
 		"start:dev": "webpack-dev-server --config webpack.config.js",
 		"lint": "eslint src",
-		"coverage": "nyc npm run test"
+		"coverage": "nyc --reporter=lcov --reporter=text npm run test"
 	},
 	"repository": {
 		"type": "git",
@@ -47,6 +47,7 @@
 		"webpack-merge": "^4.2.2"
 	},
 	"dependencies": {
+		"babel-register": "^6.26.0",
 		"jquery": "^3.6.0",
 		"react": "^16.7.0",
 		"react-dom": "^16.7.0"
