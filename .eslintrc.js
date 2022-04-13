@@ -24,5 +24,6 @@ module.exports = {
 		'no-param-reassign': 'off',
     'space-before-blocks': 'warn',
     'no-restricted-modules': ['warn', 'foo-module', 'bar-module'],
+		'no-undef': 'warn',
   },
 };
