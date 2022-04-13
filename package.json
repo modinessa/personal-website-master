@@ -40,6 +40,7 @@
 		"nyc": "^15.1.0",
 		"sinon": "^13.0.1",
 		"style-loader": "^2.0.0",
+		"uglifyjs-webpack-plugin": "^2.2.0",
 		"url-loader": "^4.1.1",
 		"webpack": "^4.28.4",
 		"webpack-cli": "^3.3.12",

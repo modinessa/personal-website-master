@@ -17,7 +17,8 @@ export function submit(button, userEmail, joinSection) {
 function handlerErrors(response, button) {
   if (!response.ok) {
     unable(button);
-    throw new Error(`${response.status}: ${response.statusText}`);
+    return response.json().then(errorJson => {throw new Error(errorJson.error);
+		});
   }
   return response.json();
 }
