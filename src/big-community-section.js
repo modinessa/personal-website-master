@@ -34,7 +34,7 @@ function sendRequest(callback) {
 
   xhr.open('GET', 'http://localhost:3000/community', true);
   xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
-	// xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+  // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
   xhr.send();
   // eslint-disable-next-line
 	xhr.addEventListener('readystatechange', () => {

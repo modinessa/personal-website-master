@@ -1,30 +1,49 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 module.exports = {
   entry: {
     app: './src/index.js',
   },
+	output: {
+    filename: '[name].bundle.min.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
   plugins: [
+		new BundleAnalyzerPlugin(),
     new CopyPlugin([
       { from: 'src/assets/images/your-logo-here.png', to: 'assets/images/your-logo-here.png' },
       { from: 'src/assets/images/your-logo-footer.png', to: 'assets/images/your-logo-footer.png' },
     ]),
     new HtmlWebpackPlugin({
 			template: 'src/index.html',
-			title: 'Production', }),
+			title: 'Production',
+			minify: {
+      	removeComments: true,
+      	collapseWhitespace: true
+    }	
+		}),
   ],
 	optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
+      minimizer: [new UglifyJsPlugin()],
+    	splitChunks: {
+      	chunks(chunk) {
+        // exclude `my-excluded-chunk`
+        return chunk.name !== 'my-excluded-chunk';
+      },
+    },
+
   },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
+	performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+},
+	devtool: false,
   module: {
     rules: [
       {
