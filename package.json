@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "mocha src/**/*.test.js",
-		"build": "webpack --config webpack.prod.js",
-		"start:dev": "webpack-dev-server --config webpack.config.js",
-		"lint": "eslint src",
+		"build": "webpack -w --config webpack.prod.js",
+		"start": "webpack-dev-server --config webpack.config.js",
+		"lint": "eslint src --fix",
 		"coverage": "nyc --reporter=lcov --reporter=text npm run test"
 	},
 	"repository": {
@@ -40,6 +40,7 @@
 		"nyc": "^15.1.0",
 		"sinon": "^13.0.1",
 		"style-loader": "^2.0.0",
+		"terser-webpack-plugin": "^4.2.3",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"url-loader": "^4.1.1",
 		"webpack": "^4.28.4",

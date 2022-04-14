@@ -1,7 +1,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 
 module.exports = {
@@ -13,10 +13,13 @@ module.exports = {
       { from: 'src/assets/images/your-logo-here.png', to: 'assets/images/your-logo-here.png' },
       { from: 'src/assets/images/your-logo-footer.png', to: 'assets/images/your-logo-footer.png' },
     ]),
-    new HtmlWebpackPlugin({ template: 'src/index.html' }),
+    new HtmlWebpackPlugin({
+			template: 'src/index.html',
+			title: 'Production', }),
   ],
 	optimization: {
-    minimizer: [new UglifyJsPlugin()],
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
   output: {
     filename: '[name].bundle.js',
