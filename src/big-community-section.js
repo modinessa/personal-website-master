@@ -59,7 +59,7 @@ function renderMembersCards(members) {
 function createMemberCard(member) {
   const review = member.review || 'PLACEHOLDER: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do incididunt ut labore et dolor.';
   const cardHtml = `
-<img src='${member.avatar}' class="app-section__member-img"/>
+<img src='${member.avatar}' class="app-section__member-img" alt="User photo"/>
 <p class="app-section__member-review">
 ${review}
 </p>
