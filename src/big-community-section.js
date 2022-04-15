@@ -32,8 +32,9 @@ We’re proud of our products, and we’re really excited<br> when we get feedba
 function sendRequest(callback) {
   const xhr = new XMLHttpRequest();
 
-  xhr.open('GET', '/api/community', true);
+  xhr.open('GET', 'http://localhost:3000/community', true);
   xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+  // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
   xhr.send();
   // eslint-disable-next-line
 	xhr.addEventListener('readystatechange', () => {
@@ -58,7 +59,7 @@ function renderMembersCards(members) {
 function createMemberCard(member) {
   const review = member.review || 'PLACEHOLDER: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do incididunt ut labore et dolor.';
   const cardHtml = `
-<img src='${member.avatar}' class="app-section__member-img"/>
+<img src='${member.avatar}' class="app-section__member-img" alt="User photo"/>
 <p class="app-section__member-review">
 ${review}
 </p>

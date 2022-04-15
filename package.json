@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "mocha src/**/*.test.js",
-		"build": "webpack --config webpack.prod.js",
-		"start:dev": "webpack-dev-server --config webpack.config.js",
-		"lint": "eslint src",
+		"build": "webpack -w --config webpack.prod.js",
+		"start": "webpack-dev-server --config webpack.config.js",
+		"lint": "eslint src --fix",
 		"coverage": "nyc --reporter=lcov --reporter=text npm run test"
 	},
 	"repository": {
@@ -35,6 +35,7 @@
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-loader": "^4.0.2",
 		"eslint-plugin-import": "^2.25.4",
+		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^4.5.2",
 		"mocha": "^9.2.2",
 		"nyc": "^15.1.0",

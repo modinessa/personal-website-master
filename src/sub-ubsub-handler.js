@@ -5,7 +5,7 @@ import * as constants from './constants.js';
 export function submit(button, userEmail, joinSection) {
   const isSubscribed = localStorage.getItem('isSubscribed') === 'true';
   const submitForm = joinSection.querySelector('.app-section--form-join-us');
-  const url = isSubscribed ? '/api/unsubscribe' : '/api/subscribe';
+  const url = isSubscribed ? 'http://localhost:3000/unsubscribe' : 'http://localhost:3000/subscribe';
 
   if (validate(userEmail.value)) {
     subscribeHandler(url, userEmail, isSubscribed, submitForm, button, joinSection);
@@ -17,8 +17,9 @@ export function submit(button, userEmail, joinSection) {
 function handlerErrors(response, button) {
   if (!response.ok) {
     unable(button);
-    return response.json().then(errorJson => {throw new Error(errorJson.error);
-		});
+    return response.json().then(errorJson => {
+      throw new Error(errorJson.error);
+    });
   }
   return response.json();
 }
