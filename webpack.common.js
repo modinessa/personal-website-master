@@ -2,7 +2,6 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 module.exports = {
@@ -14,10 +13,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-		new BundleAnalyzerPlugin(),
     new CopyPlugin([
-      { from: 'src/assets/images/your-logo-here.png', to: 'assets/images/your-logo-here.png' },
-      { from: 'src/assets/images/your-logo-footer.png', to: 'assets/images/your-logo-footer.png' },
+      { from: 'src/assets/images', to: 'assets/images' },
+      
     ]),
     new HtmlWebpackPlugin({
 			template: 'src/index.html',
