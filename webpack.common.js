@@ -11,7 +11,7 @@ module.exports = {
 	output: {
     filename: '[name].bundle.min.js',
     path: path.resolve(__dirname, 'dist'),
-		publicPath: '/dist/'
+		publicPath: '/'
   },
   plugins: [
     new CopyPlugin([
@@ -42,7 +42,6 @@ module.exports = {
         return chunk.name !== 'my-excluded-chunk';
       },
     },
-
   },
 	performance: {
     hints: false,
