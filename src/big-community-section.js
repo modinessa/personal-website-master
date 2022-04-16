@@ -1,6 +1,6 @@
 export function createCommunitySection() {
   window.addEventListener('load', () => {
-    const communitySection = document.createElement('section');
+    const communitySection = document.createElement('web-section');
     const parentNode = document.querySelector('main');
     const cultureSection = document.querySelector('.app-section--image-culture');
     communitySection.className = 'app-section app-section--big-community';
