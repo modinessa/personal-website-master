@@ -50,7 +50,7 @@ class JoinSection {
   render() {
     const joinSection = document.createElement('section');
     const parentNode = document.querySelector('main');
-    const footerNode = document.querySelector('footer');
+    const footerNode = parentNode.querySelector('footer');
 
     joinSection.className = 'app-section app-section--image-joun-us';
 

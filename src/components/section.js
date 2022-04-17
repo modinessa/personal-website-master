@@ -1,4 +1,5 @@
 export class WebsiteSection extends HTMLElement {
+  // eslint-disable-next-line
   constructor() {
     super();
   }

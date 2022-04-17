@@ -10,8 +10,7 @@ export const STANDART_TYPE = 'standart';
 export const ADVANCED_TYPE = 'advanced';
 export const HIDDEN = 'hidden';
 
-export const HERE_SECTION_CLASS_LIST =
-['app-section--image-overlay', 'app-section--image-peak']
+export const HERE_SECTION_CLASS_LIST = ['app-section--image-overlay', 'app-section--image-peak'];
 export const HERE_SECTION_CONTENT = `<img src="./assets/images/your-logo-here.png" alt="Logo icon picture" class="app-logo" />
 <h1 class="app-title">
 	Your Headline <br /> Here
@@ -20,8 +19,7 @@ export const HERE_SECTION_CONTENT = `<img src="./assets/images/your-logo-here.pn
 	Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit sed do eiusmod.
 </h2>`;
 
-export const HEADLINE_SECTION_CONTENT = 
-`<h2 class="app-title dark">
+export const HEADLINE_SECTION_CONTENT = `<h2 class="app-title dark">
 	This is the Section Headline,<br /> Continues to Two Lines
 </h2>
 <h3 class="app-subtitle dark">
@@ -40,11 +38,10 @@ export const HEADLINE_SECTION_CONTENT =
 
 <button class="app-section__button app-section__button--read-more">
 	Read more
-</button>`
+</button>`;
 
-export const COMUNITY_SECTION_CLASS_LIST = ['app-section', 'app-section--big-community'];
-export const COMUNITY_SECTION_CONTENT = 
-`<h2 class="app-title dark">
+export const COMMUNITY_SECTION_CLASS_LIST = 'app-section app-section--big-community';
+export const COMMUNITY_SECTION_CONTENT = `<h2 class="app-title dark">
 	Big Community of<br>
 	People Like You
 </h2>
@@ -52,11 +49,13 @@ export const COMUNITY_SECTION_CONTENT =
 	We’re proud of our products, and we’re really excited<br> when we get 	feedback from our users.
 </h3>
 	<div class="app-section__users">
-</div>`
+</div>`;
+export const USER_CONTAINER_CLASS = 'app-section__members';
+export const USER_CARD_CLASS = 'app-section__member-card';
+export const USER_REVIEW = 'PLACEHOLDER: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do incididunt ut labore et dolor.';
 
 export const CULTURE_SECTION_CLASS_LIST = 'app-section--image-culture';
-export const CULTURE_SECTION_CONTENT = 
-`<h2 class="app-title">
+export const CULTURE_SECTION_CONTENT = `<h2 class="app-title">
 	Learn more<br /> about our culture...
 </h2>
 
@@ -67,4 +66,4 @@ export const CULTURE_SECTION_CONTENT =
 <h3 class="app-subtitle">
 	Duis aute irure dolor in <br />reprehenderit in voluptate velit esse
 	<br /> cillum dolore eu fugiat nulla
-</h3>`
+</h3>`;

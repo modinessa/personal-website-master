@@ -9,8 +9,8 @@ const mainNode = document.querySelector('main');
 const footerNode = mainNode.querySelector('footer');
 
 function addSection(section) {
-	mainNode.insertBefore(section, footerNode);
- }
+  mainNode.insertBefore(section, footerNode);
+}
 
 customElements.define('web-section', WebsiteSection);
 
@@ -31,5 +31,3 @@ cultureSection.innerHTML = constants.CULTURE_SECTION_CONTENT;
 createCommunitySection();
 const sectionCreator = new SectionCreator();
 sectionCreator.create(constants.STANDART_TYPE);
-
- 
