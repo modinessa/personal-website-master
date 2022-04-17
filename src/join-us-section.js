@@ -13,7 +13,6 @@ export function createJoinSection(title, subButton, formClass) {
     <form class="app-section--form-join-us ${formClass}" name="EmailForm">
  
       <input class="app-section--email-join-us" type="email" id="user-email" name="email" placeholder="Email">
-			<label for="user-email">Label</label>
       </div>
       
       <button type="submit" class="app-section__button app-section__join-us--button" id="subBtn">${subButton}</button>
@@ -51,7 +50,7 @@ class JoinSection {
   render() {
     const joinSection = document.createElement('section');
     const parentNode = document.querySelector('main');
-    const footerNode = document.querySelector('footer');
+    const footerNode = parentNode.querySelector('footer');
 
     joinSection.className = 'app-section app-section--image-joun-us';
 
