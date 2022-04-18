@@ -23,7 +23,6 @@ export function validateWithThrow(email) {
 
 export function validateWithLog(email) {
   const regExp = createRegExp(constants.VALID_EMAIL_ENDINGS);
-  console.log(regExp.test(email));
   return regExp.test(email);
 }
 
