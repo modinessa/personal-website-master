@@ -10,11 +10,11 @@ import { subscribe, unsubscribe } from '../js/server-requests.js';
 //    switch (type) {
 //      case constants.STANDART_TYPE:
 //        return new JoinSection(
-//          constants.SUBSCRIBE_TITLE_STANDART, constants.SUBSCRIBE_BTN,
+//          constants.SUBSCRIBE_TITLE_STANDART, constants.SUBSCRIBE,
 //        );
 //      case constants.ADVANCED_TYPE:
 //        return new JoinSection(
-//          constants.SUBSCRIBE_TITLE_ADVANCED, constants.SUBSCRIBE_BTN_ADVANCED,
+//          constants.SUBSCRIBE_TITLE_ADVANCED, constants.SUBSCRIBE_ADVANCED,
 //        );
 //    }
 //  }
@@ -64,8 +64,7 @@ export class JoinSection extends WebsiteSection {
       const isSubscribed = localStorage.getItem('isSubscribed') === 'true';
 
       if (validate(userEmail.value)) {
-        buttonEvent.target.disabled = true;
-
+        subButton.disabled = true;
         if (!isSubscribed) {
           subscribe(userEmail.value)
             .then((response) => {
@@ -74,24 +73,24 @@ export class JoinSection extends WebsiteSection {
                   .then((error) => {
                     window.alert(error.error);
                   });
-                buttonEvent.target.disabled = false;
+                subButton.disabled = false;
               }
               return response.json();
             })
             .then(() => {
-              buttonEvent.target.disabled = false;
-              userEmail.style.display = 'none';
-              buttonEvent.target.innerHTML = 'unsubscribe';
+              subButton.disabled = false;
+							subForm.classList.add(constants.UNSUBSCRIBE);
+              buttonEvent.target.innerHTML = constants.UNSUBSCRIBE;
               localStorage.setItem('isSubscribed', 'true');
               localStorage.setItem('Join Section form', subForm.innerHTML);
             });
         } else {
           unsubscribe()
             .then(() => {
-              buttonEvent.target.disabled = false;
-              userEmail.style.display = 'block';
+              subButton.disabled = false;
+							subForm.classList.remove(constants.UNSUBSCRIBE);
               userEmail.value = '';
-              buttonEvent.target.innerHTML = 'subscribe';
+              buttonEvent.target.innerHTML = constants.SUBSCRIBE;
               localStorage.setItem('isSubscribed', 'false');
               localStorage.setItem('Join Section form', subForm.innerHTML);
             });

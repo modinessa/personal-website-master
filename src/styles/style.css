@@ -310,8 +310,13 @@ h3.dark {
 	margin-right: 32%;
 }
 
+
 .unsubscribe {
 	justify-content: center;
+}
+
+.unsubscribe input {
+	display: none;
 }
 
 .advanced {
@@ -351,19 +356,13 @@ h3.dark {
 	width: 110px;
 }
 
-
-.hidden {
-	display: none;
-}
-
-.disabled {
+.app-section__join-us--button:disabled {
 	opacity: 0.5;
 }
 
 .advanced button {
 	width: 190px;
 }
-
 
 .app-footer {
 	background-color: #3b3d40;
