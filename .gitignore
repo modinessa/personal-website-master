@@ -3,5 +3,3 @@ backup.js
 dist
 .nyc_output
 coverage
-community-section.js
-server-requests.js

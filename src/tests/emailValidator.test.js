@@ -2,7 +2,7 @@ import sinon from 'sinon';
 import { expect } from 'chai';
 import {
   validate, validateAsync, validateWithThrow, validateWithLog,
-} from '../email-validator.js';
+} from '../js/email-validator.js';
 
 describe('validate() testing', () => {
   it('should return false for empty string', () => {

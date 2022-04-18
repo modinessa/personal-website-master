@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { createRegExp } from '../email-validator.js';
+import { createRegExp } from '../js/email-validator.js';
 
 describe('createRegExp() testing', () => {
   it('should return correct regexp for provided array of email endings', () => {

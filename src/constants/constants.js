@@ -1,5 +1,17 @@
 export const VALID_EMAIL_ENDINGS = ['gmail.com', 'outlook.com', 'yandex.ru'];
 
+export const JOIN_SECTION_ADVANCED = {
+  title: 'Join Our Advanced Program',
+  btn: 'subscribe to Advanced Program',
+  type: 'advanced',
+};
+
+export const JOIN_SECTION_STANDART = {
+  title: 'Join Our Program',
+  btn: 'subscribe',
+  type: 'stantart',
+};
+
 export const SUBSCRIBE_TITLE_ADVANCED = 'Join Our Advanced Program';
 export const SUBSCRIBE_TITLE_STANDART = 'Join Our Program';
 
