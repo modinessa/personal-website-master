@@ -46,13 +46,12 @@ export class JoinSection extends WebsiteSection {
 		const worker = new Worker('worker.js', { type: 'module'});
 
 		worker.addEventListener('message', (event) => {
-			console.log(event.data);
+			console.log("Users were sent!");
 		})
 		
 		userEmail.addEventListener('click', (inputEvent) => {
       inputEvent.preventDefault();
-			console.log('inputEvent');
-			worker.postMessage('message');
+			worker.postMessage({message: 'user'});
 		});
 
     subButton.addEventListener('click', (buttonEvent) => {

@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin([
-			{from: 'src/worker.js',
+			{from: 'src/js/worker.js',
 			to: 'worker.js'},
       { from: 'src/assets/images/your-logo-here.png',
 			to: 'assets/images/your-logo-here.png'

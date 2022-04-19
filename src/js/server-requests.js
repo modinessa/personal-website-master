@@ -21,6 +21,6 @@ export function unsubscribe() {
   return fetch(`${url}/unsubscribe`, { method: 'POST' });
 }
 
-export function postUsers() {
-	return fetch(`${url}/analytics/user`,{ method: 'POST' });
-}
+// export function postUsers() {
+// 	return fetch(`${url}/analytics/user`,{ method: 'POST' });
+// }
