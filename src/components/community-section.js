@@ -38,7 +38,6 @@ ${user.position}
   }
 
   renderUsers() {
-    console.log('render users');
     getUsers()
       .then((response) => response.json())
       .then((users) => this.addUsers(users))

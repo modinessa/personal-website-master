@@ -1,4 +1,3 @@
-// import { SectionCreator } from './components/join-us-section.js';
 import { WebsiteSection } from './components/section.js';
 import { JoinSection } from './components/join-us-section.js';
 import { CommunitySection } from './components/community-section.js';

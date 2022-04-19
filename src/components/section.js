@@ -5,11 +5,11 @@ export class WebsiteSection extends HTMLElement {
   }
 
   connectedCallback() {
-    console.log(`Website Section "${this.title}" connected to page`);
-    this.title = 'web section';
+		this.title = 'web section';
     this.classList = 'app-section';
     this.description = 'Project websection';
     this.innerHTML = '<p>Bla-bla</p>';
+    console.log(`Website Section "${this.title}" connected to page`);
   }
 
   disconnectedCallback() {

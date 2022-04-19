@@ -45,7 +45,8 @@
 		"webpack": "^4.28.4",
 		"webpack-cli": "^3.3.12",
 		"webpack-dev-server": "^3.11.3",
-		"webpack-merge": "^4.2.2"
+		"webpack-merge": "^4.2.2",
+		"worker-loader": "^3.0.8"
 	},
 	"dependencies": {
 		"jquery": "^3.6.0",
