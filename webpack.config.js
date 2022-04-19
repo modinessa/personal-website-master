@@ -10,4 +10,13 @@ module.exports = merge(common, {
         port: 9000,
 				hot: true,
     },
+	//devServer: {
+	//	proxy: {
+	//		'/api': {
+	//			target: 'http://localhost:3000',
+	//			pathRewrite: { '^/api': '' },
+	//		},
+	//	},
+  //  port: 9000,
+	//}
 });

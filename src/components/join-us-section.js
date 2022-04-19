@@ -3,22 +3,6 @@ import { WebsiteSection } from './section.js';
 import { validate } from '../js/email-validator.js';
 import { subscribe, unsubscribe } from '../js/server-requests.js';
 
-// export class SectionCreator {
-//  // eslint-disable-next-line
-//  create(type) {
-//    // eslint-disable-next-line
-//    switch (type) {
-//      case constants.STANDART_TYPE:
-//        return new JoinSection(
-//          constants.SUBSCRIBE_TITLE_STANDART, constants.SUBSCRIBE,
-//        );
-//      case constants.ADVANCED_TYPE:
-//        return new JoinSection(
-//          constants.SUBSCRIBE_TITLE_ADVANCED, constants.SUBSCRIBE_ADVANCED,
-//        );
-//    }
-//  }
-// }
 
 export class JoinSection extends WebsiteSection {
   // eslint-disable-next-line
@@ -59,8 +43,23 @@ export class JoinSection extends WebsiteSection {
       localStorage.setItem('userEmail', userEmail.value);
     });
 
+		const worker = new Worker('worker.js', { type: 'module'});
+
+		worker.addEventListener('message', (event) => {
+			console.log(event.data);
+		})
+		
+		userEmail.addEventListener('click', (inputEvent) => {
+      inputEvent.preventDefault();
+			console.log('inputEvent');
+			worker.postMessage('message');
+		});
+
     subButton.addEventListener('click', (buttonEvent) => {
       buttonEvent.preventDefault();
+			
+			worker.postMessage({message: 'user'});
+
       const isSubscribed = localStorage.getItem('isSubscribed') === 'true';
 
       if (validate(userEmail.value)) {
@@ -99,6 +98,7 @@ export class JoinSection extends WebsiteSection {
         alert(`Email "${userEmail.value}" is invalid! Enter correct email adress, please!`);
       }
     });
+
   }
 
   remove() {
