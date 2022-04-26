@@ -16,10 +16,10 @@ onmessage = function(data) {
 	}
 }
 
-function postUsers() {
+function postUsers(data) {
   return fetch(`${url}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: [],
+    body: JSON.stringify(data),
   });
 } 
