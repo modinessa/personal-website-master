@@ -21,5 +21,5 @@ export function unsubscribe() {
 }
 
 export function postMetrics(metrics) {
-	return navigator.sendBeacon(`${url}/analytics/performance`, metrics)
+	return navigator.sendBeacon(`${url}/analytics/performance`, new Blob([JSON.stringify(metrics)]))
 } 
