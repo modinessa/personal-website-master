@@ -38,8 +38,12 @@ ${user.position}
   }
 
   renderUsers() {
+		performance.mark("fetchStartTime");
     getUsers()
-      .then((response) => response.json())
+		.then((response) => {
+			performance.mark("fetchEndTime");
+			return response.json()
+			})
       .then((users) => this.addUsers(users))
       .catch((error) => { throw new Error(error); });
   }
