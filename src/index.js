@@ -2,6 +2,8 @@ import { WebsiteSection } from './components/section.js';
 import { JoinSection } from './components/join-us-section.js';
 import { CommunitySection } from './components/community-section.js';
 import * as constants from './constants/constants.js';
+import { getPerfomanceMetrics } from './js/perfomance-metrics.js';
+import { postMetrics } from './js/server-requests.js';
 
 import './styles/style.css';
 
@@ -37,3 +39,11 @@ cultureSection.innerHTML = constants.CULTURE_SECTION_CONTENT;
 const joinSection = document.createElement('join-section');
 addSection(joinSection);
 joinSection.customize('standart');
+
+window.addEventListener("load", function() {
+	const report = getPerfomanceMetrics();
+
+	if(postMetrics(report)) {
+		console.log('Report was posted!', report);
+	};
+})

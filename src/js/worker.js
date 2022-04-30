@@ -1,22 +1,25 @@
-// const url = 'http://localhost:3000';
-const url = 'api/';
+
+const url = '/api/analytics/user';
 let dataBatch = [];
 
 onmessage = function(data) {
 	dataBatch.push(data.data.message);
 
 	if(dataBatch.length == 5) {
-		postUsers()
-		.then(() => {
+		postUsers(dataBatch)
+		.then((response) => {
 			dataBatch = [];
-			postMessage('Done!')});
+			if(response.ok) {
+				postMessage('Users were sent!');
+			}
+		});
 	}
 }
 
-function postUsers() {
-  return fetch(`${url}/subscribe`, {
+function postUsers(data) {
+  return fetch(`${url}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: [],
+    body: JSON.stringify(data),
   });
 } 
