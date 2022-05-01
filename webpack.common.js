@@ -26,6 +26,12 @@ module.exports = {
       { from: 'src/assets/images/favicon.ico',
 			to: 'assets/images/favicon.ico'
 			},	
+      { from: 'src/assets/images/your-image-join.png',
+			to: 'assets/images/your-image-join.png'
+			},	
+      { from: 'src/assets/images/your-image-join_mob.png',
+			to: 'assets/images/your-image-join_mob.png'
+			},	
     ]),
     new HtmlWebpackPlugin({
 			template: 'src/index.html',

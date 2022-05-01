@@ -206,72 +206,6 @@ h3.dark {
 	width: 135px;
 }
 
-.app-section--big-community {
-	background-color: white;
-}
-
-.app-section--big-community h2 {
-	margin-top: 90px;
-	margin-bottom: 10px;
-}
-
-.app-section__members {
-	display: flex;
-}
-
-.app-section__member-card {
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	border-radius: 8px;
-	padding: 30px 40px 25px 30px;
-	margin-top: 50px;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 70px;
-	width: 315px;
-	text-align: center;
-}
-
-.app-section__member-card:hover {
-	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-}
-
-.app-section__member-img {
-	align-self: center;
-	height: 150px;
-	width: 150px;
-	z-index: 10;
-}
-
-.app-section__member-review {
-	min-height: 100px;
-	max-width: 230px;
-}
-
-.app-section__member-name {
-	color: #464547;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 12px;
-	line-height: 18px;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	margin-bottom: 0;
-}
-
-.app-section__member-position {
-	align-self: center;
-	width: 110px;
-	font-style: normal;
-	font-weight: 400;
-	font-size: 12px;
-	margin-top: 10px;
-	line-height: 16px;
-	color: #666666;
-}
-
 .app-section--image-culture {
 	background: linear-gradient(to top, rgba(65, 65, 65, 0.7), rgba(65, 65, 65, 0.7)),
 		url(../assets/images/your-image.jpg) no-repeat center/cover;
@@ -287,81 +221,6 @@ h3.dark {
 	margin: 64px auto;
 	padding: 0;
 	font-size: 4rem;
-}
-
-.app-section--image-joun-us {
-	background: linear-gradient(to top, rgba(5, 17, 18, 0.5), rgba(5, 17, 18, 0.5)),
-		url(../assets/images/your-image-join.png) no-repeat center;
-	box-sizing: border-box;
-	color: white;
-	justify-content: space-between;
-	height: 435px;
-	max-width: 100%;
-	padding-bottom: 90px;
-	padding-top: 35px;
-
-}
-
-.app-section--form-join-us {
-	width: 600px;
-	display: flex;
-	justify-content: space-between;
-	margin-left: 27%;
-	margin-right: 32%;
-}
-
-
-.unsubscribe {
-	justify-content: center;
-}
-
-.unsubscribe input {
-	display: none;
-}
-
-.advanced {
-	width: 645px;
-	margin-left: 27%;
-	margin-right: 27%;
-}
-
-.app-section--image-joun-us h3 {
-	color: rgba(255, 255, 255, 0.7);
-	margin-top: 0px;
-}
-
-.app-section--form-join-us>* {
-	align-self: center;
-}
-
-
-#user-email {
-	box-sizing: border-box;
-	background: rgba(255, 255, 255, 0.15);
-	padding: 14px 50px 14px 10px;
-	color: white;
-	width: 400px;
-}
-
-.app-section--email-join-us::placeholder {
-	color: white;
-}
-
-.app-section__join-us--button {
-	border-radius: 26px;
-	font-size: 14px;
-	height: 46px;
-	letter-spacing: 1.2px;
-	text-transform: uppercase;
-	width: 110px;
-}
-
-.app-section__join-us--button:disabled {
-	opacity: 0.5;
-}
-
-.advanced button {
-	width: 190px;
 }
 
 .app-footer {
@@ -427,10 +286,6 @@ h3.dark {
 		height: 648px;
 	}
 
-	div.app-section__members>:not(:first-child) {
-		display: none;
-	}
-
 	.app-section--image-culture {
 		height: 698px;
 	}
@@ -450,35 +305,6 @@ h3.dark {
 
 	.app-section__button--read-more {
 		margin: 24px auto 48px;
-	}
-
-	.app-section--image-joun-us {
-		background: linear-gradient(to top, rgba(5, 17, 18, 0.5), rgba(5, 17, 18, 0.5)),
-			url(../assets/images/your-image-join_mob.png) no-repeat center/cover;
-		height: 523px;
-		width: 100%;
-		justify-content: flex-start;
-	}
-
-	.app-section--form-join-us {
-		margin: 25px 0 0 0;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-
-	.unsubscribe>button {
-		margin-top: 91px;
-	}
-
-	.app-section--submit-join-us {
-		margin: 55px 0 0 0;
-		height: 48px;
-		width: 420px;
-	}
-
-	.app-section__join-us--button {
-		margin-top: 45px;
-		margin-bottom: 0;
 	}
 
 	.app-footer {
