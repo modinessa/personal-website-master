@@ -17,21 +17,9 @@ module.exports = {
     new CopyPlugin([
 			{from: 'src/js/worker.js',
 			to: 'worker.js'},
-      { from: 'src/assets/images/your-logo-here.png',
-			to: 'assets/images/your-logo-here.png'
-			},	
-      { from: 'src/assets/images/your-logo-footer.png',
-			to: 'assets/images/your-logo-footer.png'
-			},	
-      { from: 'src/assets/images/favicon.ico',
-			to: 'assets/images/favicon.ico'
-			},	
-      { from: 'src/assets/images/your-image-join.png',
-			to: 'assets/images/your-image-join.png'
-			},	
-      { from: 'src/assets/images/your-image-join_mob.png',
-			to: 'assets/images/your-image-join_mob.png'
-			},	
+      { from: 'src/assets',
+			to: 'assets'
+			}	
     ]),
     new HtmlWebpackPlugin({
 			template: 'src/index.html',
@@ -76,8 +64,12 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+        test: /(?<!\.component).css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.component\.css$/,
+        use: [{ loader: 'css-loader' }],
       },
 			{
         test: /\.(png|jpe?g|svg|ico)$/i,

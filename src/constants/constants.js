@@ -53,15 +53,6 @@ export const HEADLINE_SECTION_CONTENT = `<h2 class="app-title dark">
 </button>`;
 
 export const COMMUNITY_SECTION_CLASS_LIST = 'app-section app-section--big-community';
-export const COMMUNITY_SECTION_CONTENT = `<h2 class="app-title dark">
-	Big Community of<br>
-	People Like You
-</h2>
-<h3 class="app-subtitle dark">
-	We’re proud of our products, and we’re really excited<br> when we get 	feedback from our users.
-</h3>
-	<div class="app-section__users">
-</div>`;
 export const USER_CONTAINER_CLASS = 'app-section__members';
 export const USER_CARD_CLASS = 'app-section__member-card';
 export const USER_REVIEW = 'PLACEHOLDER: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do incididunt ut labore et dolor.';
